@@ -1,11 +1,10 @@
 {
-    "manifest_version": 1,
+    "manifest_version": 2,
 
     "name": "Clipboard Manager",
     "description": "This is a simple extension to store and manage clipboard history",
     "version": "1.0",
     "offline_enabled": true,
-
     "browser_action": {
         "default_icon": "assets/icon.png",
         "default_popup": "templates/popup.html"
@@ -13,6 +12,6 @@
     "permissions": [
         "clipboardWrite",
         "clipboardRead",
-        "storage",
+        "storage"
     ]
 }
