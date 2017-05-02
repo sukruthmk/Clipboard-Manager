@@ -1,0 +1,4 @@
+md-list-item, md-list-item .md-list-item-inner, md-checkbox {
+    height: 3em;
+	min-height: initial;
+}

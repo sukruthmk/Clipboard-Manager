@@ -1,22 +1,3 @@
-// document.addEventListener('DOMContentLoaded', function () {
-//     var checkPageButton = document.getElementById('checkPage');
-//     checkPageButton.addEventListener('click', function() {
-//         chrome.tabs.getSelected(null, function(tab) {
-//             d = document;
-//
-//             var f = d.createElement('form');
-//             f.action = 'http://gtmetrix.com/analyze.html?bm';
-//             f.method = 'post';
-//             var i = d.createElement('input');
-//             i.type = 'hidden';
-//             i.name = 'url';
-//             i.value = tab.url;
-//             f.appendChild(i);
-//             d.body.appendChild(f);
-//             f.submit();
-//         });
-//     });
-// });
 angular.module('clipboardManager', ['ngMaterial'])
 
     .config(function($mdIconProvider) {
@@ -31,9 +12,9 @@ angular.module('clipboardManager', ['ngMaterial'])
     .controller('AppCtrl', function($scope) {
         var imagePath = 'img/list/60.jpeg';
 
-        $scope.todos = [];
+        $scope.clipboard = [];
         for (var i = 0; i < 15; i++) {
-            $scope.todos.push({
+            $scope.clipboard.push({
                 face: imagePath,
                 what: "Brunch this weekend?",
                 who: "Min Li Chan",

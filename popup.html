@@ -6,6 +6,9 @@
     <!-- Angular Material style sheet -->
     <link rel="stylesheet" href="libs/angular-material.min.css">
 
+    <!-- css for the page -->
+    <link rel="stylesheet" href="css/style.css">
+
     <!-- Angular Material requires Angular.js Libraries -->
     <script src="libs/angular.min.js"></script>
     <script src="libs/angular-animate.min.js"></script>
@@ -14,6 +17,8 @@
 
     <!-- Angular Material Library -->
     <script src="libs/angular-material.min.js"></script>
+
+     <!-- Main javascript file -->
     <script src="js/popup.js"></script>
 
 </head>
@@ -29,17 +34,11 @@
                     </md-tab-label>
                     <md-tab-body>
                         <md-list>
-                            <md-list-item class="md-3-line" ng-repeat="item in todos">
-                                <img ng-src="{{item.face}}" alt="{{item.who}}" class="md-avatar">
-
-                                <div class="md-list-item-text">
-                                    <h3>{{item.what}}</h3>
-                                    <h4>{{item.who}}</h4>
-
-                                    <p>
-                                        {{item.notes}}
-                                    </p>
-                                </div>
+                            <md-list-item ng-repeat="item in clipboard">
+                                <!-- <div class="md-list-item-text">
+                                    <h5>{{item.what}}</h5>
+                                </div> -->
+                                <span>{{item.what}}</span>
                                 <md-divider inset></md-divider>
                             </md-list-item>
                         </md-list>
