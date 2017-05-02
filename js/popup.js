@@ -22,3 +22,15 @@ angular.module('clipboardManager', ['ngMaterial'])
             });
         }
     });
+
+document.addEventListener('DOMContentLoaded', function() {
+    // if("indexedDB" in window) {
+    //
+    // } else {
+    //     // implement backward compatability if indexedDB is not present
+    //
+    // }
+    setInterval(function() {
+
+    }, 1500);
+});
