@@ -34,11 +34,13 @@ var DatabaseManager = {
         storeAddRequest.onsuccess = function(e) {
             console.log("added data in store..");
         }
-    }
+    },
 
     // function to get data from indexedDB
     get: function() {
         var records = [];
+        //setup deferred object
+        var defer = $.Deferred();
         var transaction = db.transaction(["history"], "readonly");
         var store = transaction.objectStore("history");
         var cursor = store.openCursor();
@@ -53,10 +55,16 @@ var DatabaseManager = {
                 }
                 res.continue();
             } else {
-                return records;
+                //when done resolve the promise, you could also do more
+                //checking and reject the data so you can handle
+                //errors
+                defer.resolve(records);
             }
         }
-    }
+
+        //return the promise
+        return defer.promise();
+    },
 
     // function to delete data in indexedDB
     delete: function(id) {
@@ -65,9 +73,12 @@ var DatabaseManager = {
         if (id) {
             var objectStoreRequest = store.delete(parseInt(id));
             objectStoreRequest.onsuccess = function(event) {
-                sendResponse({
-                    'success': true
-                });
+                
+            };
+        } else {
+            var objectStoreRequest = store.clear();
+            objectStoreRequest.onsuccess = function(event) {
+
             };
         }
     }

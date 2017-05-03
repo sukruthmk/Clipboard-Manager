@@ -22,6 +22,8 @@
     <script src="libs/jquery.min.js"></script>
 
     <!-- Main javascript file -->
+    <script src="js/db.js"></script>
+    <script src="js/clipboard.js"></script>
     <script src="js/popup.js"></script>
 
 </head>
@@ -37,11 +39,11 @@
                     </md-tab-label>
                     <md-tab-body>
                         <md-list>
-                            <md-list-item ng-repeat="item in clipboard">
+                            <md-list-item ng-repeat="item in clipboard | reverse">
                                 <!-- <div class="md-list-item-text">
                                     <h5>{{item.what}}</h5>
                                 </div> -->
-                                <span>{{item.what}}</span>
+                                <span>{{item.text}}</span>
                                 <md-divider inset></md-divider>
                             </md-list-item>
                         </md-list>
