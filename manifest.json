@@ -9,8 +9,12 @@
         "default_icon": "assets/icon.png",
         "default_popup": "popup.html"
     },
+    "background": {
+        "page": "background.html"
+    },
     "permissions": [
         "activeTab",
+        "tabs",
         "clipboardWrite",
         "clipboardRead",
         "storage"

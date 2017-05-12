@@ -13,6 +13,7 @@ dbOpenRequest.onupgradeneeded = function(e) {
 dbOpenRequest.onsuccess = function(e) {
     db = e.target.result;
     console.log("database initialized..");
+    $(document).trigger("db-initialized");
 };
 
 dbOpenRequest.onerror = function(e) {
@@ -73,7 +74,7 @@ var DatabaseManager = {
         if (id) {
             var objectStoreRequest = store.delete(parseInt(id));
             objectStoreRequest.onsuccess = function(event) {
-                
+
             };
         } else {
             var objectStoreRequest = store.clear();
