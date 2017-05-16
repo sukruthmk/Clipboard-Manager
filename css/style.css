@@ -10,7 +10,3 @@ md-list-item .clipboard-text {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
-md-list-item.clipboard-text-container {
-    cursor: pointer;
-}
