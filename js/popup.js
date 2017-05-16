@@ -25,14 +25,15 @@ angular.module('clipboardManager', ['ngMaterial'])
 
         chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
             if (request.action == "update-data") {
-                $scope.clipboard.push({
-                    text: request.data
+                $scope.$apply(function(){
+                    $scope.clipboard.push({
+                        text: request.data
+                    });
                 });
             }
         });
 
         $scope.copyToClipboard = function(text) {
-            console.log(text);
             ClipboardManager.copyToClipboard(text);
         }
     })
