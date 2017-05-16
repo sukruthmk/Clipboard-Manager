@@ -56,7 +56,7 @@ var BackGround = {
         });
         this.storedData.push(pasteText);
         this.prevText = pasteText;
-        // this.updateBadge(this.storedData.length);
+        this.updateBadge(this.storedData.length);
 
         // Trigger to handle other actions
         chrome.runtime.sendMessage({ action: "update-data", data: pasteText}, function(response) {
@@ -65,7 +65,12 @@ var BackGround = {
     },
 
     updateBadge: function(number) {
+        console.log(number);
+        console.log(number.toString());
         // chrome.browserAction.setBadgeBackgroundColor({ color: [255, 0, 0, 255] });
+        chrome.browserAction.setBadgeText({
+            text: number.toString()
+        });
         // chrome.browserAction.setBadgeText({text: number});
     }
 }
