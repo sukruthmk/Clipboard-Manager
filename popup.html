@@ -22,6 +22,7 @@
     <script src="libs/jquery.min.js"></script>
 
     <!-- Main javascript file -->
+    <script src="js/clipboard.js"></script>
     <script src="js/popup.js"></script>
 
 </head>
@@ -37,7 +38,7 @@
                     </md-tab-label>
                     <md-tab-body>
                         <md-list>
-                            <md-list-item class="clipboard-text-container" ng-repeat="item in clipboard | reverse" ng-click="null">
+                            <md-list-item class="clipboard-text-container" ng-repeat="item in clipboard | reverse" ng-click="copyToClipboard(item.text)">
                                 <div class="md-list-item-text clipboard-text" layout="row">{{item.text}}</div>
                                 <md-divider inset></md-divider>
                             </md-list-item>

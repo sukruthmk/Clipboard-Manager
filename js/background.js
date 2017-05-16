@@ -30,6 +30,7 @@ var BackGround = {
                 self.prevText = text;
             }
 
+            // self.updateBadge(self.storedData.length);
             self.startInterval();
         });
     },
@@ -42,14 +43,30 @@ var BackGround = {
         var self = this;
         setInterval(function() {
             var pasteText = ClipboardManager.getClipboard();
+            // If it is a new text then save it to DB
             if (pasteText != self.prevText) {
-                DatabaseManager.save({
-                    text: pasteText
-                });
-                self.storedData.push(pasteText);
-                self.prevText = pasteText;
+                self.saveData(pasteText);
             }
         }, 1500);
+    },
+
+    saveData: function(pasteText) {
+        DatabaseManager.save({
+            text: pasteText
+        });
+        this.storedData.push(pasteText);
+        this.prevText = pasteText;
+        // this.updateBadge(this.storedData.length);
+
+        // Trigger to handle other actions
+        chrome.runtime.sendMessage({ action: "update-data", data: pasteText}, function(response) {
+
+        });
+    },
+
+    updateBadge: function(number) {
+        // chrome.browserAction.setBadgeBackgroundColor({ color: [255, 0, 0, 255] });
+        // chrome.browserAction.setBadgeText({text: number});
     }
 }
 

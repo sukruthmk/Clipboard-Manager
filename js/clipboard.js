@@ -9,6 +9,15 @@ var ClipboardManager = {
         var paste = pasteTarget.innerText;
         actElem.removeChild(pasteTarget);
         return paste;
+    },
+
+    copyToClipboard: function(text) {
+        var copyTarget = document.createElement('textarea');
+        copyTarget.value = text;
+        document.body.appendChild(copyTarget);
+        copyTarget.select();
+        document.execCommand('copy');
+        copyTarget.remove();
     }
 
 }
