@@ -2,3 +2,15 @@ md-list-item, md-list-item .md-list-item-inner, md-checkbox {
     height: 3em;
 	min-height: initial;
 }
+
+md-list-item .clipboard-text {
+    width: 100%;
+    max-height: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+md-list-item.clipboard-text-container {
+    cursor: pointer;
+}

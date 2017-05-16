@@ -37,11 +37,11 @@
                     </md-tab-label>
                     <md-tab-body>
                         <md-list>
-                            <md-list-item ng-repeat="item in clipboard | reverse">
+                            <md-list-item class="clipboard-text-container" ng-repeat="item in clipboard | reverse">
                                 <!-- <div class="md-list-item-text">
                                     <h5>{{item.what}}</h5>
                                 </div> -->
-                                <span>{{item.text}}</span>
+                                <div class="clipboard-text" layout="row">{{item.text}}</div>
                                 <md-divider inset></md-divider>
                             </md-list-item>
                         </md-list>
